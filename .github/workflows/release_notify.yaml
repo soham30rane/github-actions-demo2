@@ -11,6 +11,7 @@ jobs:
       - name: Trigger Workflow in Repository B
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          TRIGGER_SECRET: $${{ secrets.TRIGGER_SECRET }}
           RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
           curl -L \
@@ -19,4 +20,4 @@ jobs:
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/soham30rane/github-actions-demo/actions/workflows/main.yml/dispatches \
-            -d '{"ref":"main","inputs":{"release_tag":"'"$RELEASE_TAG"'"}}'
+            -d '{"ref":"main","inputs":{"release_tag":"'"$RELEASE_TAG"'","recieved_secret":"'"$TRIGGER_SECRET"'"}}'
