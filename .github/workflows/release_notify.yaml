@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Upload release tag as artifact
+      - name: Create release tag file
         run: |
           echo "${{ github.event.release.tag_name }}" > release_tag.txt
-          upload-artifact -n release_tag -f release_tag.txt
+          
+      - name: Upload release tag as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-tag
+          path: release_tag.txt
