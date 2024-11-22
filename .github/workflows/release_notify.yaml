@@ -19,5 +19,6 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "X-Trigger-Secret: $TRIGGER_SECRET" \
             https://api.github.com/repos/soham30rane/github-actions-demo/actions/workflows/main.yml/dispatches \
-            -d '{"ref":"main","inputs":{"release_tag":"'"$RELEASE_TAG"'","recieved_secret":"'"$TRIGGER_SECRET"'"}}'
+            -d '{"ref":"main","inputs":{"release_tag":"'"$RELEASE_TAG"'"}}'
