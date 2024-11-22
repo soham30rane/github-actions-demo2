@@ -2,7 +2,7 @@ name: Trigger Workflow in Repo B
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   trigger-repo-b-workflow:
