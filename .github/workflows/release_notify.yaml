@@ -11,7 +11,7 @@ jobs:
       - name: Trigger Workflow in Repository B
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          TRIGGER_SECRET: $${{ secrets.TRIGGER_SECRET }}
+          TRIGGER_SECRET: ${{ secrets.TRIGGER_SECRET }}
           RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
           curl -L \
