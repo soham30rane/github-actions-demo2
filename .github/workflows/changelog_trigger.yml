@@ -5,7 +5,7 @@ on:
     types: [published]
 
 jobs:
-  trigger-repo-b-workflow:
+  trigger-website-repo-workflow:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Workflow in website repo
