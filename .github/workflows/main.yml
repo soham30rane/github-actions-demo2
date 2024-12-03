@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Workflow in website repo
+        if: "!github.event.release.prerelease"
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           TRIGGER_SECRET: ${{ secrets.TRIGGER_SECRET }}
